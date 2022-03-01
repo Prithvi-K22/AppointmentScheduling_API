@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppointmentScheduling", "AppointmentScheduling\AppointmentScheduling.csproj", "{F1134283-DA58-4569-B4CF-155E4C6EDB50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentTesting.UnitTests", "AppointmentTesting.UnitTests\AppointmentTesting.UnitTests.csproj", "{1287DB5B-43DF-464A-BD21-3DF5FAFBEDB7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1134283-DA58-4569-B4CF-155E4C6EDB50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1134283-DA58-4569-B4CF-155E4C6EDB50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1134283-DA58-4569-B4CF-155E4C6EDB50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1134283-DA58-4569-B4CF-155E4C6EDB50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1287DB5B-43DF-464A-BD21-3DF5FAFBEDB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1287DB5B-43DF-464A-BD21-3DF5FAFBEDB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1287DB5B-43DF-464A-BD21-3DF5FAFBEDB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1287DB5B-43DF-464A-BD21-3DF5FAFBEDB7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {64E400CC-286A-437D-A665-26F66FDA2303}
+	EndGlobalSection
+EndGlobal
