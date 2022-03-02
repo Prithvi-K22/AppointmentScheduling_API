@@ -20,7 +20,7 @@ namespace AppointmentScheduling.Controllers
             _db = db;
         }
 
-        //Edited
+        //Edited 1 line
         [HttpGet]
         public List<AppointmentResultViewModel> Get()
         {
