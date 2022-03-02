@@ -13,11 +13,11 @@ namespace AppointmentScheduling.Controllers
     [ApiController]
     public class AccountController : Controller
     {
-        private readonly JwtSettings jwtSettings;
-        public AccountController(JwtSettings jwtSettings)
-        {
-            this.jwtSettings = jwtSettings;
-        }
+        //private readonly JwtSettings jwtSettings;
+        //public AccountController(JwtSettings jwtSettings)
+        //{
+        //    this.jwtSettings = jwtSettings;
+        //}
         private IEnumerable<Users> logins = new List<Users>() {
             new Users() {
                     Id = Guid.NewGuid(),
