@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net;
+using System.Text;
 
 namespace AppointmentScheduling.Controllers
 {
@@ -36,18 +39,20 @@ namespace AppointmentScheduling.Controllers
         {
             try
             {
-                var Token = new UserTokens();
+                var Token = String.Empty;
                 var Valid = logins.Any(x => x.UserName.Equals(userLogins.UserName, StringComparison.OrdinalIgnoreCase));
                 if (Valid)
                 {
                     var user = logins.FirstOrDefault(x => x.UserName.Equals(userLogins.UserName, StringComparison.OrdinalIgnoreCase));
-                    Token = JwtHelpers.JwtHelpers.GenTokenkey(new UserTokens()
-                    {
-                        EmailId = user.EmailId,
-                        GuidId = Guid.NewGuid(),
-                        UserName = user.UserName,
-                        Id = user.Id,
-                    }, jwtSettings);
+                    //Token = JwtHelpers.JwtHelpers.GenTokenkey(new UserTokens()
+                    //{
+                    //    EmailId = user.EmailId,
+                    //    GuidId = Guid.NewGuid(),
+                    //    UserName = user.UserName,
+                    //    Id = user.Id,
+                    //}, jwtSettings);
+
+                    Token = GenerateJSONWebToken();
                 }
                 else
                 {
@@ -61,10 +66,24 @@ namespace AppointmentScheduling.Controllers
             }
         }
         [HttpGet]
-        [Authorize(AuthenticationSchemes = Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize]
         public IActionResult GetList()
         {
-            return Ok(logins);
+            return Ok("Yor are authorized user");
+        }
+
+        private string GenerateJSONWebToken()
+        {
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("W74eKLfl5nLlmgRfz-xrzPU5e6TAVwRFG"));
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken("Appointment.com",
+              "Appointment.com",
+              null,
+              expires: DateTime.Now.AddMinutes(120),
+              signingCredentials: credentials);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
     }
 }
